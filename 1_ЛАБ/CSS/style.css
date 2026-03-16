@@ -1,0 +1,53 @@
+table {
+    border-collapse: collapse;
+    width: auto;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
+    background-color: gray;
+    color: black;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+td {
+    background-color: lightgray;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.forms-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 100px;
+    margin-bottom: 20px;
+}
+
+#filter {
+    display: flex;
+    flex-direction: column;
+}
+
+#filter p {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 5px 0;
+}
+
+#filter p input {
+    width: 60%;
+}
+
+/* "от" и "до" */
+#filter p:nth-child(6) input, 
+#filter p:nth-child(7) input {
+    width: 20%;
+}
+
+#sort {
+    margin-top: 50px;
+}
