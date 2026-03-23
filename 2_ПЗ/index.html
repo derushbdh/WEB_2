@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+    <script src="JavaScript/image.js"></script>
+    <script src="JavaScript/path.js"></script>
+    <script src="JavaScript/main.js"></script>
+  </head>
+  <body>
+    
+    <form id="setting">
+        <div style="display: flex; gap: 20px; text-align: left; margin-bottom: 10px; margin-top: 10px;">
+            <div>
+                <label for="duration">Время анимации: </label><br>
+                <input type="number" id="duration" value="5000" step="500" min="500" style="width: 100px;">
+            </div>
+            <div>
+                <label for="scaleFactor">Масштабирование: </label><br>
+                <input type="number" id="scaleFactor" value="1.0" step="0.1" style="width: 100px;">
+            </div>
+            <div>
+                <label for="rotateAngle">Вращение: </label><br>
+                <input type="number" id="rotateAngle" value="360" step="10" style="width: 100px;">
+            </div>
+        </div>
+        <p>
+            <input type="button" value="Запустить анимацию" id="startBtn">
+            <input type="button" value="Очистить" id="clearBtn">
+        </p>
+    </form>
+
+    <svg></svg>
+
+  </body>
+</html>

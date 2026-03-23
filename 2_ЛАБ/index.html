@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="http://d3js.org/d3.v7.min.js"> </script>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/image.js"></script>
+    <script src="JavaScript/path.js"></script>
+  </head>
+  <body>
+    
+    <form id="setting">
+        <div style="display: flex; gap: 20px; text-align: left; margin-bottom: 10px;">
+            <div id="coordsBlock">
+                <b>Координаты рисунка</b><br>
+                <label for="cx">x: </label>
+                <input type="number" id="cx" value="300" max="600" min="0" style="width: 50px;">
+                <span class="anim-field" style="display: none;">до <input type="number" id="cx_finish" value="550" max="600" min="0" style="width: 50px;"></span><br>
+                <label for="cy">y: </label>
+                <input type="number" id="cy" value="300" max="600" min="0" style="width: 50px;">
+                <span class="anim-field" style="display: none;">до <input type="number" id="cy_finish" value="550" max="600" min="0" style="width: 50px;"></span>
+            </div>
+            <div id="pathsBlock" style="display: none;">
+                <b>Пути перемещения</b><br>
+                <select id="pathType">
+                    <option value="0">Буквой "Г"</option>
+                    <option value="1">По кругу</option>
+                </select>
+            </div>
+            <div id="scaleBlock">
+                <b>Масштаб</b><br>
+                <label for="sx">по x: </label>
+                <input type="number" id="sx" value="1" step="0.1" style="width: 50px;">
+                <span class="anim-field" style="display: none;">до <input type="number" id="sx_finish" value="1.5" step="0.1" style="width: 50px;"></span><br>
+                <label for="sy">по y: </label>
+                <input type="number" id="sy" value="1" step="0.1" style="width: 50px;">
+                <span class="anim-field" style="display: none;">до <input type="number" id="sy_finish" value="1.5" step="0.1" style="width: 50px;"></span>
+            </div>
+            <div id="rotateBlock">
+                <b>Поворот</b><br>
+                <label for="angle">угол: </label>
+                <input type="number" id="angle" value="0" style="width: 50px;">
+                <span class="anim-field" style="display: none;">до <input type="number" id="angle_finish" value="180" style="width: 50px;"></span>
+            </div>
+        </div>
+        <p>
+            <input type="button" value="Очистить" id="clearBtn">
+        </p>
+        <p>
+            <input type="checkbox" id="animationCheck"> <label for="animationCheck">Включить анимацию?</label>
+            <select id="animationType" style="display: none;">
+                <option value="linear">linear</option>
+                <option value="elastic">elastic</option>
+                <option value="bounce">bounce</option>
+            </select>
+            <br>
+            <span id="pathContainer" style="display: none;">
+                <input type="checkbox" id="pathCheck"> <label for="pathCheck">Перемещение вдоль пути?</label>
+            </span>
+            <br>
+            <input type="button" value="Анимировать" id="animateBtn" style="display: none;">
+            <input type="button" value="Нарисовать" id="drawBtn">
+        </p>
+    </form>
+
+    <svg></svg>
+
+  </body>
+</html>
