@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Демографические показатели</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/table.js"></script>
+    <script src="JavaScript/chart.js"></script>
+    <script src="JavaScript/main.js"></script>
+</head>
+<body>
+
+<a href="page1.html">Обзор демографической ситуации</a><br>
+<a href="page2.html">Страны с отрицательным приростом</a><br>
+<a href="page3.html">Демографические показатели</a>
+<hr>
+
+<h1>Демографические показатели мира</h1>
+
+<details>
+    <summary><strong>График</strong></summary>
+    <form id="graph-form">
+        <p><strong>Значение по оси OX</strong></p>
+        <label><input type="radio" name="ox_axis" value="Континент" checked> Континент</label><br>
+        <label><input type="radio" name="ox_axis" value="Страна"> Страна</label><br>
+        <label><input type="radio" name="ox_axis" value="Год"> Год</label><br>
+        
+        <p><strong>Значение по оси OY</strong></p>
+        <label><input type="checkbox" name="oy_values" value="Население, млн" checked> 
+            Численность населения (общая)</label><br>
+        <label><input type="checkbox" name="oy_values" value="Плотность, чел/км²"> 
+            Плотность населения (общая)</label><br>
+        <label><input type="checkbox" name="oy_values" value="Прирост, %"> 
+            Прирост населения (общий)</label><br>
+
+        <p><strong>Тип графика</strong></p>
+        <label><input type="radio" name="chart_type" value="scatter" checked> 
+            Точечная диаграмма</label><br>
+        <label><input type="radio" name="chart_type" value="line"> 
+            График</label><br>
+        <label><input type="radio" name="chart_type" value="bar"> 
+            Столбчатая диаграмма</label><br>
+        
+        <button type="button" id="drawGraphBtn">Отрисовать</button>
+    </form>
+    <br>
+    <svg id="chartArea"></svg>
+    <div id="chartLegend"></div>
+</details>
+
+<details>
+    <summary><strong>Фильтр</strong></summary>
+    <label for="country_filter">Страна:</label> <input type="text" 
+    id="country_filter" name="country_filter"><br>
+    <label for="continent_filter">Континент:</label> 
+    <input type="text" id="continent_filter" name="continent_filter"><br>
+    <label for="year_from">Год: от</label> <input type="number" 
+    id="year_from" name="year_from"> <label for="year_to">до</label> 
+    <input type="number" id="year_to" name="year_to"><br>
+    <label for="population_from">Население: от</label> <input type="number" 
+    id="population_from" name="population_from"> <label for="population_to">до</label> 
+    <input type="number" id="population_to" name="population_to"><br>
+    <label for="density_from">Плотность: от</label> <input type="number" 
+    id="density_from" name="density_from"> <label for="density_to">до</label> 
+    <input type="number" id="density_to" name="density_to"><br>
+    <label for="growth_from">Прирост: от</label> <input type="number" step="0.1"
+    id="growth_from" name="growth_from"> <label for="growth_to">до</label> 
+    <input type="number" step="0.1" id="growth_to" name="growth_to"><br>
+    <button>Найти</button>
+</details>
+
+<details>
+    <summary><strong>Сортировка</strong></summary>
+    <label for="first_level">Первый уровень:</label> 
+    <select id="first_level" name="first_level">
+        <option>Нет</option>
+        <option>Страна</option>
+        <option>Континент</option>
+        <option>Год</option>
+        <option>Население, млн</option>
+        <option>Плотность, чел/км²</option>
+        <option>Прирост, %</option>
+    </select>
+    <label for="first_desc">по убыванию?</label> <input type="checkbox" 
+    id="first_desc" name="first_desc"><br>
+    
+    <label for="second_level">Второй уровень:</label> 
+    <select id="second_level" name="second_level">
+        <option>Нет</option>
+        <option>Страна</option>
+        <option>Континент</option>
+        <option>Год</option>
+        <option>Население, млн</option>
+        <option>Плотность, чел/км²</option>
+        <option>Прирост, %</option>
+    </select>
+    <label for="second_desc">по убыванию?</label> <input type="checkbox" 
+    id="second_desc" name="second_desc"><br>
+    
+    <label for="third_level">Третий уровень:</label> 
+    <select id="third_level" name="third_level">
+        <option>Нет</option>
+        <option>Страна</option>
+        <option>Континент</option>
+        <option>Год</option>
+        <option>Население, млн</option>
+        <option>Плотность, чел/км²</option>
+        <option>Прирост, %</option>
+    </select>
+    <label for="third_desc">по убыванию?</label> <input type="checkbox" 
+    id="third_desc" name="third_desc"><br>
+    <button>Сортировать</button>
+</details>
+
+<table id="dataTable" border="1" cellspacing="0"></table>
+
+</body>
+</html>

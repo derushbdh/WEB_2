@@ -1,0 +1,7 @@
+svg {
+    width: 800px;
+    height: 400px;
+}
+.axis line, .axis path {
+    stroke: black;
+}
